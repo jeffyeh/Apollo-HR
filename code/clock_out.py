@@ -19,13 +19,13 @@ def run(playwright):
         print("已經過了下班打卡時間，不打卡")  
         return  
   
-    random_seconds = random.randint(0, int((end_time - start_time).total_seconds()))  
-    random_time = start_time + timedelta(seconds=random_seconds)  
-    time_to_wait = (random_time - now).total_seconds()  
-    print(f"等待 {time_to_wait} 秒後打下班卡")  
-    time.sleep(time_to_wait)  
+    #random_seconds = random.randint(0, int((end_time - start_time).total_seconds()))  
+    #random_time = start_time + timedelta(seconds=random_seconds)  
+    #time_to_wait = (now - random_time).total_seconds()  
+    #print(f"等待 {time_to_wait} 秒後打下班卡")  
+    #time.sleep(time_to_wait)  
   
-    browser = playwright.chromium.launch(headless=False)  
+    browser = playwright.chromium.launch(headless=True)  
     page = browser.new_page()  
     page.goto("https://asiaauth.mayohr.com/HRM/Account/Login?original_target=https://apollo.mayohr.com/tube&lang=zh-tw&utm_source=google&utm_medium=cpc&utm_campaign=pmax%E6%89%93%E5%8D%A1%E7%B3%BB%E7%B5%B1%EF%BC%86utm_content=&utm_term=&gad_source=1&gclid=CjwKCAiAm-67BhBlEiwAEVftNmHCa7tTiFiOgcLJKk63cGj1O7vNZgwFzLMzSlaHGv720kuZrEEpMRoCuKoQAvD_BwE")  
   
